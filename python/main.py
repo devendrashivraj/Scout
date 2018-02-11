@@ -4,9 +4,9 @@ from cv import *
 
 def decide():
     left = recognizer('left.jpg')
-    right = recognizer('center.jpg')
-    center = recognizer('right.jpg')
-
+    center = recognizer('center.jpg')
+    right = recognizer('right.jpg')
+    print left,center,right
     if (center):
         return 99
     elif (left and (not right) and (not center)):

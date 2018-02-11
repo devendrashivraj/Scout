@@ -15,9 +15,9 @@ global left, right, center
 rek = boto3.client('rekognition')
 s3 = boto3.client('s3')
 stream = BytesIO()
-left_box = (0,0, 864, 1944)
-center_box = (864, 0, 1728, 1944)
-right_box = (1728, 0, 2592, 1944)
+left_box = (0,0, 432, 1944)
+center_box = (432, 0, 2160, 1944)
+right_box = (2160, 0, 2592, 1944)
 
 global camera
 camera = PiCamera()
@@ -68,10 +68,11 @@ def recognizer(image_filename):
 
     #print response
     for i in response['Labels']:
-        print i['Name']
+        
         if i['Name'] == 'Human':
+            print 'found hooman', image_filename
             return True
-    print '%n'
+    #print '%n'
 
 ##capture_image()
 ##upload()
