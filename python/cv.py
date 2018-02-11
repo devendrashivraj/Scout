@@ -7,6 +7,7 @@ from PIL import ImageFilter
 from PIL import ImageEnhance
 import numpy as np
 import boto3
+import os
 
 global left, right, center
 
@@ -24,18 +25,20 @@ camera.resolution = (2592, 1944)
 camera.framerate= 30
 
 def capture_image():
-    camera.capture(stream, format = 'jpeg')
-    stream.seek(0)
-    image = Image.open(stream)
+    camera.capture('file.jpg', format = 'jpeg')
+    image = Image.open('file.jpg')
+    image.show()
+    time.sleep(3)
+    os.remove('file.jpg')
 
      
     enhancer = ImageEnhance.Brightness(image)
-    imf = enhancer.enhance(3)
+    #imf = enhancer.enhance(3)
     #imf = imf.filter(ImageFilter.FIND_EDGES)
 
-    iml = imf.crop(left_box)
-    imc = imf.crop(center_box) 
-    imr = imf.crop(right_box)
+    iml = image.crop(left_box)
+    imc = image.crop(center_box) 
+    imr = image.crop(right_box)
 
     iml.save('left.jpg')
     imc.save('cent.jpg')
@@ -47,6 +50,11 @@ def upload():
     s3.upload_file('left.jpg','hackbeans','left.jpg')
     s3.upload_file('cent.jpg','hackbeans','center.jpg')
     s3.upload_file('rt.jpg','hackbeans','right.jpg')
+    os.remove('left.jpg')
+    os.remove('cent.jpg')
+    os.remove('rt.jpg')
+
+    
 
 def recognizer(image_filename):
     response = rek.detect_labels(

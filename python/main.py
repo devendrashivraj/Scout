@@ -7,12 +7,12 @@ def decide():
     right = recognizer('center.jpg')
     center = recognizer('right.jpg')
 
-    if (left and (not right) and (not center)):
+    if (center):
+        return 99
+    elif (left and (not right) and (not center)):
         return 108
     elif (right and (not left) and (not center)):
         return 114
-    elif (center):
-        return 99
     else:
         return 108
 
