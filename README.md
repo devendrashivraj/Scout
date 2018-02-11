@@ -9,4 +9,4 @@ Using the Pi Camera and the PIL library, images taken of the environment in fron
 
 
 
-<img src="https://user-images.githubusercontent.com/6588879/36074524-e816b15c-0f0e-11e8-8e77-f9169f4f8b18.jpeg" width="400" height="509"> <img src="https://user-images.githubusercontent.com/6588879/36074525-e8320c2c-0f0e-11e8-9f09-e105df131e34.jpeg" width="400" height="509">
+<img src="https://user-images.githubusercontent.com/6588879/36074524-e816b15c-0f0e-11e8-8e77-f9169f4f8b18.jpeg" width="420" height="400"> <img src="https://user-images.githubusercontent.com/6588879/36074525-e8320c2c-0f0e-11e8-9f09-e105df131e34.jpeg" width="420" height="400">
