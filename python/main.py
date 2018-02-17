@@ -14,10 +14,12 @@ def decide():
     elif (right and (not left) and (not center)):
         return 114
     else:
-        return 108
+        return 103
 
 while(1):
     print 'test'
+    time.sleep(1)
+   
     capture_image()
     print 'cap'
     upload()

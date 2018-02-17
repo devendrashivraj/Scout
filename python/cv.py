@@ -1,3 +1,4 @@
+
 import time
 from picamera import PiCamera
 from io import BytesIO
@@ -54,7 +55,16 @@ def upload():
     os.remove('cent.jpg')
     os.remove('rt.jpg')
 
-    
+def run_rec(filename):
+    response = rek.detect_labels(
+	Image ={
+	     'S3Object':{
+		'Bucket':'hackbeans',
+		'Name': filename
+	     }
+	}
+    )
+    return response    
 
 def recognizer(image_filename):
     response = rek.detect_labels(
@@ -69,7 +79,7 @@ def recognizer(image_filename):
     #print response
     for i in response['Labels']:
         
-        if i['Name'] == 'Human':
+        if i['Name'] == 'Human'or i['Name'] == 'Person' or i['Name'] == 'People' or i['Name'] == 'Clothing' or i['Name'] == 'Footwear':
             print 'found hooman', image_filename
             return True
     #print '%n'
