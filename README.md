@@ -9,4 +9,5 @@ Using the Pi Camera and the PIL library, images taken of the environment in fron
 # The Arduino Side
 The Arduino Uno received commands from the Raspberry Pi through I2C and used the TB6612FNG motor driver to control the robot's motion, and the range of view of the ultrasonic sensor (could not be used at the same time though, because it also communicated on the I2C protocol). The robot used two optical sensors to prevent falling off edges, and colliding with walls. 
 
-
+# In the News
+https://www.bizjournals.com/boston/news/2018/02/13/hackbeanpot-hackathon-winners-focus-on-emotion-ai.html
